@@ -82,7 +82,7 @@ end;
 
 procedure TfrmBayar.actSimpanExecute(Sender: TObject);
 begin
-  // Validasi Pembayaran
+  // Validasi Pembayaran - cek nilai nya sesuai ndak ?
   if (edtBayar.Value<ATotalTransaksi) then
   begin
     MessageDlg('GAGAL ! Masukkan nilai pembayaran yang sesuai !',mtError,[mbOK],0);
