@@ -1,0 +1,59 @@
+unit uMain;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ImgList, ActnList, ActnMan, ComCtrls, ToolWin, ActnCtrls, Ribbon,
+  RibbonLunaStyleActnCtrls, ExtCtrls, dsTaskBar ;
+
+type
+  TfrmMain = class(TForm)
+    Ribbon1: TRibbon;
+    RibbonPage1: TRibbonPage;
+    RibbonGroup1: TRibbonGroup;
+    RibbonPage2: TRibbonPage;
+    RibbonGroup2: TRibbonGroup;
+    RibbonGroup3: TRibbonGroup;
+    RibbonPage3: TRibbonPage;
+    StatusBar1: TStatusBar;
+    RibbonGroup4: TRibbonGroup;
+    ActionManager1: TActionManager;
+    Action1: TAction;
+    Action2: TAction;
+    Action3: TAction;
+    Action4: TAction;
+    Action5: TAction;
+    Action6: TAction;
+    Action7: TAction;
+    Action8: TAction;
+    Action9: TAction;
+    Action10: TAction;
+    dsTaskBar1: TdsTaskBar;
+    ImageList1: TImageList;
+    tmr1: TTimer;
+    procedure Action10Execute(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmMain: TfrmMain;
+
+implementation
+
+uses uKasir;
+
+{$R *.dfm}
+
+procedure TfrmMain.Action10Execute(Sender: TObject);
+begin
+  // Transaksi Kasir
+  if not Assigned(frmKasir) then
+    frmKasir := TfrmKasir.Create(self);
+  frmKasir.ShowModal;
+end;
+
+end.

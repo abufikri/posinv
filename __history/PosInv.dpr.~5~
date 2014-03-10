@@ -1,0 +1,19 @@
+program PosInv;
+
+uses
+  Forms,
+  uMain in 'uMain.pas' {frmMain},
+  uKasir in 'uKasir.pas' {frmKasir},
+  modul in 'modul.pas' {DM: TDataModule},
+  uLogin in 'uLogin.pas' {frmLogin};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TfrmMain, frmMain);
+  Application.CreateForm(TDM, DM);
+  Application.CreateForm(TfrmLogin, frmLogin);
+  Application.Run;
+end.
