@@ -2,23 +2,27 @@
 <BorlandProject>
 	<Transactions>
     <Transaction>2014/02/24 13:54:17.000.140,=C:\Users\Imam Ms\Documents\RAD Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2014/02/24 13:54:31.000.068,C:\Users\Imam Ms\Documents\RAD Studio\Projects\Unit1.pas=E:\Development\Inventory\POSInv\uMain.pas</Transaction>
-    <Transaction>2014/02/24 13:54:31.000.068,C:\Users\Imam Ms\Documents\RAD Studio\Projects\Unit1.dfm=E:\Development\Inventory\POSInv\uMain.dfm</Transaction>
-    <Transaction>2014/02/24 13:54:34.000.827,C:\Users\Imam Ms\Documents\RAD Studio\Projects\Project2.dproj=E:\Development\Inventory\POSInv\PosInv.dproj</Transaction>
+    <Transaction>2014/02/24 13:54:31.000.068,E:\Development\Inventory\POSInv\uMain.dfm=C:\Users\Imam Ms\Documents\RAD Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2014/02/24 13:54:31.000.068,E:\Development\Inventory\POSInv\uMain.pas=C:\Users\Imam Ms\Documents\RAD Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2014/02/24 13:54:34.000.827,E:\Development\Inventory\POSInv\PosInv.dproj=C:\Users\Imam Ms\Documents\RAD Studio\Projects\Project2.dproj</Transaction>
     <Transaction>2014/02/25 10:27:39.000.120,=D:\DevelopmentXE\Inventory Retail\Source\Pos Retail\Unit2.pas</Transaction>
-    <Transaction>2014/02/25 10:27:56.000.200,D:\DevelopmentXE\Inventory Retail\Source\Pos Retail\uKasir.dfm=D:\DevelopmentXE\Inventory Retail\Source\Pos Retail\Unit2.dfm</Transaction>
-    <Transaction>2014/02/25 10:27:56.000.200,D:\DevelopmentXE\Inventory Retail\Source\Pos Retail\uKasir.pas=D:\DevelopmentXE\Inventory Retail\Source\Pos Retail\Unit2.pas</Transaction>
+    <Transaction>2014/02/25 10:27:56.000.200,D:\DevelopmentXE\Inventory Retail\Source\Pos Retail\Unit2.dfm=D:\DevelopmentXE\Inventory Retail\Source\Pos Retail\uKasir.dfm</Transaction>
+    <Transaction>2014/02/25 10:27:56.000.200,D:\DevelopmentXE\Inventory Retail\Source\Pos Retail\Unit2.pas=D:\DevelopmentXE\Inventory Retail\Source\Pos Retail\uKasir.pas</Transaction>
     <Transaction>2014/02/25 10:30:43.000.667,=D:\DevelopmentXE\Inventory Retail\Source\Pos Retail\modul.pas</Transaction>
     <Transaction>2014/02/25 10:51:25.000.656,=D:\DevelopmentXE\Inventory Retail\Source\Pos Retail\uLogin.pas</Transaction>
     <Transaction>2014/02/25 11:06:04.000.381,=D:\DevelopmentXE\Inventory Retail\Source\Pos Retail\uSearch.pas</Transaction>
     <Transaction>2014/02/26 00:43:26.000.201,=D:\DevelopmentXE\Inventory Retail\Source\Pos Retail\Unit1.pas</Transaction>
-    <Transaction>2014/02/26 00:44:14.000.755,D:\DevelopmentXE\Inventory Retail\Source\Pos Retail\Unit1.pas=D:\DevelopmentXE\Inventory Retail\Source\Pos Retail\uBayar.pas</Transaction>
-    <Transaction>2014/02/26 00:44:14.000.755,D:\DevelopmentXE\Inventory Retail\Source\Pos Retail\Unit1.dfm=D:\DevelopmentXE\Inventory Retail\Source\Pos Retail\uBayar.dfm</Transaction>
+    <Transaction>2014/02/26 00:44:14.000.755,D:\DevelopmentXE\Inventory Retail\Source\Pos Retail\uBayar.dfm=D:\DevelopmentXE\Inventory Retail\Source\Pos Retail\Unit1.dfm</Transaction>
+    <Transaction>2014/02/26 00:44:14.000.755,D:\DevelopmentXE\Inventory Retail\Source\Pos Retail\uBayar.pas=D:\DevelopmentXE\Inventory Retail\Source\Pos Retail\Unit1.pas</Transaction>
     <Transaction>2014/03/03 21:44:12.000.060,=D:\DevelopmentXE\Inventory Retail\Source\Pos Retail\Unit1.pas</Transaction>
-    <Transaction>2014/03/03 21:44:37.000.692,D:\DevelopmentXE\Inventory Retail\Source\Pos Retail\uHold.pas=D:\DevelopmentXE\Inventory Retail\Source\Pos Retail\Unit1.pas</Transaction>
-    <Transaction>2014/03/03 21:44:37.000.692,D:\DevelopmentXE\Inventory Retail\Source\Pos Retail\uHold.dfm=D:\DevelopmentXE\Inventory Retail\Source\Pos Retail\Unit1.dfm</Transaction>
-    <Transaction>2014/03/07 13:05:54.955,=D:\DevelopmentXE\Inventory Retail\Source\Pos Retail\Unit1.pas</Transaction>
-    <Transaction>2014/03/07 13:06:18.204,D:\DevelopmentXE\Inventory Retail\Source\Pos Retail\uCashIn.dfm=D:\DevelopmentXE\Inventory Retail\Source\Pos Retail\Unit1.dfm</Transaction>
-    <Transaction>2014/03/07 13:06:18.204,D:\DevelopmentXE\Inventory Retail\Source\Pos Retail\uCashIn.pas=D:\DevelopmentXE\Inventory Retail\Source\Pos Retail\Unit1.pas</Transaction>
+    <Transaction>2014/03/03 21:44:37.000.692,D:\DevelopmentXE\Inventory Retail\Source\Pos Retail\Unit1.pas=D:\DevelopmentXE\Inventory Retail\Source\Pos Retail\uHold.pas</Transaction>
+    <Transaction>2014/03/03 21:44:37.000.692,D:\DevelopmentXE\Inventory Retail\Source\Pos Retail\Unit1.dfm=D:\DevelopmentXE\Inventory Retail\Source\Pos Retail\uHold.dfm</Transaction>
+    <Transaction>2014/03/07 13:05:54.000.955,=D:\DevelopmentXE\Inventory Retail\Source\Pos Retail\Unit1.pas</Transaction>
+    <Transaction>2014/03/07 13:06:18.000.204,D:\DevelopmentXE\Inventory Retail\Source\Pos Retail\Unit1.pas=D:\DevelopmentXE\Inventory Retail\Source\Pos Retail\uCashIn.pas</Transaction>
+    <Transaction>2014/03/07 13:06:18.000.204,D:\DevelopmentXE\Inventory Retail\Source\Pos Retail\Unit1.dfm=D:\DevelopmentXE\Inventory Retail\Source\Pos Retail\uCashIn.dfm</Transaction>
+    <Transaction>2014/03/10 16:21:52.191,=D:\DevelopmentXE\Inventory Retail\Source\Pos Retail\Unit1.pas</Transaction>
+    <Transaction>2014/03/10 16:22:08.860,D:\DevelopmentXE\Inventory Retail\Source\Pos Retail\uFormClientMDI.dfm=D:\DevelopmentXE\Inventory Retail\Source\Pos Retail\Unit1.dfm</Transaction>
+    <Transaction>2014/03/10 16:22:08.860,D:\DevelopmentXE\Inventory Retail\Source\Pos Retail\uFormClientMDI.pas=D:\DevelopmentXE\Inventory Retail\Source\Pos Retail\Unit1.pas</Transaction>
+    <Transaction>2014/03/10 16:26:10.223,=D:\DevelopmentXE\Inventory Retail\Source\Pos Retail\Unit1.pas</Transaction>
   </Transactions>
 </BorlandProject>

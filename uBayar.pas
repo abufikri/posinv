@@ -125,7 +125,7 @@ begin
   end;
 
   // Insert tabel TR_MESIN
-    DM.DBConn.ExecuteQuery('INSERT INTO TR_MESIN (NO_NOTA, MESIN_ID, K_TRANSAKSI, WKT_TRANSASI, DEBET, KREDIT, JNS_BAYAR, KETERANGAN, KASIR_ID, SHIFT_JUAL) '+
+    DM.DBConn.ExecuteQuery('INSERT INTO TR_MESIN (NO_NOTA, MESIN_ID, K_TRANSAKSI, WKT_TRANSAKSI, DEBET, KREDIT, JNS_BAYAR, KETERANGAN, KASIR_ID, SHIFT_JUAL) '+
                           ' VALUES (:no_nota, :mesin_id, :k_transaksi, current_timestamp, :debet, :kredit, :jns_bayar,:keterangan, :kasir_id, :shift_jual) ',
                           [Pembayaran.No_Nota,
                            Pembayaran.Mesin_ID,

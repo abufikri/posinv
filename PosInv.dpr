@@ -9,7 +9,8 @@ uses
   uSearch in 'uSearch.pas' {frmSearch},
   uBayar in 'uBayar.pas' {frmBayar},
   uHold in 'uHold.pas' {frmHold},
-  uCashIn in 'uCashIn.pas' {frmCashIn};
+  uCashIn in 'uCashIn.pas' {frmCashIn},
+  uFormClientMDI in 'uFormClientMDI.pas' {frmClientMDI};
 
 {$R *.res}
 

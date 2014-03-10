@@ -4,7 +4,7 @@ interface
 
 uses
   SysUtils, Classes, IBXDB, {WSocket,} Forms,  Controls,
-   NxGrid, NxColumns, NxCustomGridControl, Dialogs,
+   NxGrid, NxColumns,NxColumnClasses, NxCustomGridControl, Dialogs,
    DB, Graphics, Variants, ImgList;
 
 type
@@ -306,9 +306,16 @@ procedure TDM.DoDataGrid(SQLQuery: string; Params: Array of Variant; Grid: TNexT
 var
   i       : Integer;
   DBSet   : TDataset;
+  sTitle  : string;
 begin
   DBSet    := DBConn.CreateSQLDataSet(SqlQuery,Params,True);
   try
+    if DBSet.Fields.Count>Grid.Columns.Count then
+    repeat
+       sTitle := DBSet.Fields[Grid.Columns.Count].FieldName;
+       Grid.Columns.Add(TNxTextColumn,sTitle);
+    until DBSet.Fields.Count<=Grid.Columns.Count;
+
     Grid.InactiveSelectionColor := GridColorSelection;
     Grid.SelectionColor     := GridColorSelection;
     Grid.AppearanceOptions  := [aoHighlightSlideCells];
