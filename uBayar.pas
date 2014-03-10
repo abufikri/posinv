@@ -112,7 +112,7 @@ begin
     Pembayaran.Nm_Kartu_Bayar := edtNama_Kartu_Debet.Text;
     Pembayaran.Bank_Kartu_Bayar := cbbBank_Debet.Text;
 
-    // Insert tabel TR_MESIN_NONCASH
+    // Insert tabel TR_MESIN_NONCASH sebagai detail transaksi non cash
     DM.DBConn.ExecuteQuery('INSERT INTO TR_MESIN_NONCASH (NO_NOTA, MESIN_ID, NO_KARTU_BAYAR, NM_KARTU_BAYAR, BANK_KARTU_BAYAR, NO_VALIDASI_BAYAR) '+
                           ' VALUES (:no_nota, :mesin_id, :no_kartu_bayar, :nm_kartu_bayar, :bank_kartu_bayar, :no_validasi_Bayar) ',
                           [Pembayaran.No_Nota,
