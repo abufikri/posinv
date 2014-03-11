@@ -67,8 +67,8 @@ object frmCashOut: TfrmCashOut
       Top = 1
       Width = 733
       Height = 398
-      ActivePage = NxTabSheet2
-      ActivePageIndex = 1
+      ActivePage = NxTabSheet1
+      ActivePageIndex = 0
       Align = alClient
       TabOrder = 0
       Margin = 0
@@ -110,12 +110,69 @@ object frmCashOut: TfrmCashOut
         end
         object gridList: TNextGrid
           Left = 24
-          Top = 58
+          Top = 57
           Width = 681
           Height = 247
           Anchors = [akLeft, akTop, akRight, akBottom]
           TabOrder = 0
           TabStop = True
+          object NxTextColumn1: TNxTextColumn
+            DefaultWidth = 100
+            Header.Caption = 'No Nota'
+            Header.Alignment = taCenter
+            Position = 0
+            SortType = stAlphabetic
+            Width = 100
+          end
+          object NxTextColumn2: TNxTextColumn
+            Alignment = taCenter
+            DefaultWidth = 60
+            Header.Caption = 'Mesin ID'
+            Header.Alignment = taCenter
+            Position = 1
+            SortType = stAlphabetic
+            Width = 60
+          end
+          object NxTextColumn3: TNxTextColumn
+            Header.Caption = 'K Transaksi'
+            Header.Alignment = taCenter
+            Position = 2
+            SortType = stAlphabetic
+          end
+          object NxNumberColumn1: TNxNumberColumn
+            DefaultValue = '0'
+            DefaultWidth = 120
+            Header.Caption = 'Debet'
+            Header.Alignment = taCenter
+            Position = 3
+            SortType = stNumeric
+            Width = 120
+            FormatMask = '#,#.#'
+            Increment = 1.000000000000000000
+            Precision = 0
+          end
+          object NxTextColumn4: TNxTextColumn
+            DefaultWidth = 150
+            Header.Caption = 'Keterangan'
+            Header.Alignment = taCenter
+            Position = 4
+            SortType = stAlphabetic
+            Width = 150
+          end
+          object NxTextColumn5: TNxTextColumn
+            Header.Caption = 'Kasir ID'
+            Header.Alignment = taCenter
+            Position = 5
+            SortType = stAlphabetic
+          end
+          object NxTextColumn6: TNxTextColumn
+            DefaultWidth = 40
+            Header.Caption = 'Shift'
+            Header.Alignment = taCenter
+            Position = 6
+            SortType = stAlphabetic
+            Width = 40
+          end
         end
         object btnRefresh: TBitBtn
           Left = 544

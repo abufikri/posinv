@@ -10,6 +10,7 @@ uses
 type
   TAccountLogin = record
     userID,
+    ShiftID,
     groupID,
     groupName,
     NameID,

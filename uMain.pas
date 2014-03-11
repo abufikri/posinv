@@ -36,6 +36,7 @@ type
     procedure tmr1Timer(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure Action8Execute(Sender: TObject);
+    procedure Action9Execute(Sender: TObject);
   private
     { Private declarations }
   public
@@ -47,7 +48,7 @@ var
 
 implementation
 
-uses uKasir, uLogin, modul, uCashIn;
+uses uKasir, uLogin, modul, uCashIn, uCashOut;
 
 {$R *.dfm}
 
@@ -65,6 +66,14 @@ begin
   if not Assigned(frmCashIn) then
     frmCashIn := TfrmCashIn.Create(self);
   frmCashIn.Show;
+end;
+
+procedure TfrmMain.Action9Execute(Sender: TObject);
+begin
+  // Cash OUT
+  if not Assigned(frmCashOut) then
+    frmCashOut := TfrmCashOut.Create(self);
+  frmCashOut.Show;
 end;
 
 procedure TfrmMain.FormShow(Sender: TObject);

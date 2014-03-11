@@ -36,7 +36,6 @@ object frmMain: TfrmMain
         Caption = 'Laporan'
         Page = RibbonPage3
       end>
-    ExplicitTop = -6
     DesignSize = (
       1104
       143)
@@ -59,14 +58,14 @@ object frmMain: TfrmMain
       object RibbonGroup3: TRibbonGroup
         Left = 4
         Top = 3
-        Width = 56
+        Width = 98
         Height = 86
         ActionManager = ActionManager1
         Caption = 'Cash IN - OUT'
         GroupIndex = 0
       end
       object RibbonGroup4: TRibbonGroup
-        Left = 62
+        Left = 104
         Top = 3
         Width = 51
         Height = 86
@@ -171,9 +170,15 @@ object frmMain: TfrmMain
       item
         Items = <
           item
+            Action = Action9
+            Caption = 'C&ash OUT'
+            ImageIndex = 23
+            CommandProperties.ButtonSize = bsLarge
+          end
+          item
             Action = Action8
             Caption = '&Cash IN'
-            ImageIndex = 19
+            ImageIndex = 24
             CommandProperties.ButtonSize = bsLarge
           end>
         ActionBar = RibbonGroup3
@@ -213,11 +218,14 @@ object frmMain: TfrmMain
     object Action8: TAction
       Category = 'Cash IN OUT'
       Caption = 'Cash IN'
+      ImageIndex = 24
       OnExecute = Action8Execute
     end
     object Action9: TAction
       Category = 'Cash IN OUT'
       Caption = 'Cash OUT'
+      ImageIndex = 23
+      OnExecute = Action9Execute
     end
     object Action10: TAction
       Category = 'Penjualan'
@@ -231,7 +239,7 @@ object frmMain: TfrmMain
     Left = 320
     Top = 248
     Bitmap = {
-      494C010131009400500120002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010131009400540120002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       000000000000360000002800000080000000A001000001002000000000000040
       0300000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000

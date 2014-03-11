@@ -1,7 +1,7 @@
 object frmCashIn: TfrmCashIn
   Left = 0
   Top = 0
-  Caption = 'frmCashIn'
+  Caption = 'Transaksi CASH IN'
   ClientHeight = 481
   ClientWidth = 735
   Color = clBtnFace
@@ -26,13 +26,12 @@ object frmCashIn: TfrmCashIn
     Color = clWhite
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 648
     object lbHeader: TLabel
       Left = 16
       Top = 8
-      Width = 74
+      Width = 148
       Height = 19
-      Caption = 'lbHeader'
+      Caption = 'Transaksi Cash IN'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -16
@@ -43,9 +42,11 @@ object frmCashIn: TfrmCashIn
     object lbDeskripsi: TLabel
       Left = 16
       Top = 40
-      Width = 61
+      Width = 430
       Height = 16
-      Caption = 'lbDeskripsi'
+      Caption = 
+        'Transaksi Cash IN terdiri dari : MODAL AWAL dan Transaksi Masuk ' +
+        'Lainnya'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -13
@@ -61,8 +62,6 @@ object frmCashIn: TfrmCashIn
     Height = 400
     Align = alClient
     TabOrder = 1
-    ExplicitWidth = 648
-    ExplicitHeight = 268
     object NxPageControl1: TNxPageControl
       Left = 1
       Top = 1
@@ -76,10 +75,6 @@ object frmCashIn: TfrmCashIn
       Options = [pgBoldActiveTab, pgTopBorder]
       Spacing = 0
       TabHeight = 17
-      ExplicitLeft = 40
-      ExplicitTop = 48
-      ExplicitWidth = 300
-      ExplicitHeight = 250
       object NxTabSheet1: TNxTabSheet
         Caption = 'List Data'
         PageIndex = 0
@@ -89,9 +84,6 @@ object frmCashIn: TfrmCashIn
         TabFont.Height = -11
         TabFont.Name = 'Tahoma'
         TabFont.Style = []
-        ExplicitTop = 0
-        ExplicitWidth = 646
-        ExplicitHeight = 264
         DesignSize = (
           733
           377)
@@ -116,15 +108,6 @@ object frmCashIn: TfrmCashIn
           Height = 13
           Caption = 'Dari Tanggal'
         end
-        object gridList: TNextGrid
-          Left = 24
-          Top = 58
-          Width = 681
-          Height = 247
-          Anchors = [akLeft, akTop, akRight, akBottom]
-          TabOrder = 0
-          TabStop = True
-        end
         object btnRefresh: TBitBtn
           Left = 544
           Top = 27
@@ -134,7 +117,7 @@ object frmCashIn: TfrmCashIn
           Caption = 'Refresh Data'
           DoubleBuffered = True
           ParentDoubleBuffered = False
-          TabOrder = 1
+          TabOrder = 0
           OnClick = btnRefreshClick
         end
         object Panel2: TPanel
@@ -144,7 +127,7 @@ object frmCashIn: TfrmCashIn
           Height = 50
           Align = alBottom
           BevelOuter = bvLowered
-          TabOrder = 2
+          TabOrder = 1
           DesignSize = (
             733
             50)
@@ -153,7 +136,8 @@ object frmCashIn: TfrmCashIn
             Top = 9
             Width = 161
             Height = 33
-            Caption = 'Tambah Data'
+            Action = actTambah
+            Caption = 'F3 - Tambah Data'
             DoubleBuffered = True
             ParentDoubleBuffered = False
             TabOrder = 0
@@ -178,7 +162,7 @@ object frmCashIn: TfrmCashIn
           Height = 21
           Date = 40653.008174768520000000
           Time = 40653.008174768520000000
-          TabOrder = 3
+          TabOrder = 2
         end
         object dtp1: TDateTimePicker
           Left = 185
@@ -187,7 +171,115 @@ object frmCashIn: TfrmCashIn
           Height = 21
           Date = 40653.008174768520000000
           Time = 40653.008174768520000000
+          TabOrder = 3
+        end
+        object gridList: TNextGrid
+          Left = 24
+          Top = 57
+          Width = 681
+          Height = 247
+          Anchors = [akLeft, akTop, akRight, akBottom]
           TabOrder = 4
+          TabStop = True
+          object NxTextColumn1: TNxTextColumn
+            DefaultWidth = 100
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            Header.Caption = 'No Nota'
+            Header.Alignment = taCenter
+            ParentFont = False
+            Position = 0
+            SortType = stAlphabetic
+            Width = 100
+          end
+          object NxTextColumn2: TNxTextColumn
+            Alignment = taCenter
+            DefaultWidth = 60
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            Header.Caption = 'Mesin ID'
+            Header.Alignment = taCenter
+            ParentFont = False
+            Position = 1
+            SortType = stAlphabetic
+            Width = 60
+          end
+          object NxTextColumn3: TNxTextColumn
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            Header.Caption = 'K Transaksi'
+            Header.Alignment = taCenter
+            ParentFont = False
+            Position = 2
+            SortType = stAlphabetic
+          end
+          object NxNumberColumn1: TNxNumberColumn
+            DefaultValue = '0'
+            DefaultWidth = 120
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            Header.Caption = 'Debet'
+            Header.Alignment = taCenter
+            ParentFont = False
+            Position = 3
+            SortType = stNumeric
+            Width = 120
+            FormatMask = '#,#.#'
+            Increment = 1.000000000000000000
+            Precision = 0
+          end
+          object NxTextColumn4: TNxTextColumn
+            DefaultWidth = 150
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            Header.Caption = 'Keterangan'
+            Header.Alignment = taCenter
+            ParentFont = False
+            Position = 4
+            SortType = stAlphabetic
+            Width = 150
+          end
+          object NxTextColumn5: TNxTextColumn
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            Header.Caption = 'Kasir ID'
+            Header.Alignment = taCenter
+            ParentFont = False
+            Position = 5
+            SortType = stAlphabetic
+          end
+          object NxTextColumn6: TNxTextColumn
+            DefaultWidth = 40
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            Header.Caption = 'Shift'
+            Header.Alignment = taCenter
+            ParentFont = False
+            Position = 6
+            SortType = stAlphabetic
+            Width = 40
+          end
         end
       end
       object NxTabSheet2: TNxTabSheet
@@ -199,10 +291,157 @@ object frmCashIn: TfrmCashIn
         TabFont.Height = -11
         TabFont.Name = 'Tahoma'
         TabFont.Style = []
-        ExplicitTop = 0
-        ExplicitWidth = 646
-        ExplicitHeight = 264
+        ExplicitLeft = 3
+        object Label2: TLabel
+          Left = 24
+          Top = 48
+          Width = 37
+          Height = 13
+          Caption = 'Kasir ID'
+        end
+        object Label3: TLabel
+          Left = 24
+          Top = 74
+          Width = 41
+          Height = 13
+          Caption = 'Mesin ID'
+        end
+        object Label4: TLabel
+          Left = 238
+          Top = 74
+          Width = 22
+          Height = 13
+          Caption = 'Shift'
+        end
+        object Label5: TLabel
+          Left = 24
+          Top = 101
+          Width = 64
+          Height = 13
+          Caption = 'Nominal Cash'
+        end
+        object Label6: TLabel
+          Left = 24
+          Top = 231
+          Width = 56
+          Height = 13
+          Caption = 'Keterangan'
+        end
+        object Panel4: TPanel
+          Left = 0
+          Top = 327
+          Width = 733
+          Height = 50
+          Align = alBottom
+          BevelOuter = bvLowered
+          TabOrder = 0
+          DesignSize = (
+            733
+            50)
+          object BitBtn3: TBitBtn
+            Left = 24
+            Top = 9
+            Width = 161
+            Height = 33
+            Action = actSave
+            Caption = 'F10 - Simpan'
+            DoubleBuffered = True
+            ParentDoubleBuffered = False
+            TabOrder = 0
+          end
+          object BitBtn4: TBitBtn
+            Left = 584
+            Top = 9
+            Width = 121
+            Height = 33
+            Action = actCancel
+            Anchors = [akTop, akRight]
+            Caption = 'F12 - Batal'
+            DoubleBuffered = True
+            NumGlyphs = 2
+            ParentDoubleBuffered = False
+            TabOrder = 1
+          end
+        end
+        object edtKasirID: TEdit
+          Left = 112
+          Top = 44
+          Width = 249
+          Height = 21
+          Enabled = False
+          ReadOnly = True
+          TabOrder = 2
+        end
+        object edtMesinID: TEdit
+          Left = 112
+          Top = 71
+          Width = 73
+          Height = 21
+          Enabled = False
+          ReadOnly = True
+          TabOrder = 3
+        end
+        object edtShift: TEdit
+          Left = 276
+          Top = 71
+          Width = 85
+          Height = 21
+          Enabled = False
+          ReadOnly = True
+          TabOrder = 4
+        end
+        object edtNominal: TNxNumberEdit
+          Left = 112
+          Top = 98
+          Width = 249
+          Height = 21
+          TabOrder = 1
+          Text = '0.00'
+        end
+        object rgJenisTransaksi: TRadioGroup
+          Left = 24
+          Top = 135
+          Width = 337
+          Height = 66
+          Caption = ' Jenis Transaksi CASH IN'
+          Columns = 2
+          ItemIndex = 0
+          Items.Strings = (
+            'MODAL'
+            'KAS MASUK LAIN-LAIN')
+          TabOrder = 5
+        end
+        object edtKeterangan: TEdit
+          Left = 112
+          Top = 228
+          Width = 249
+          Height = 21
+          TabOrder = 6
+        end
       end
+    end
+  end
+  object ActionList1: TActionList
+    Left = 592
+    Top = 200
+    object actTambah: TAction
+      Caption = 'F3 - Tambah Data'
+      ShortCut = 114
+      OnExecute = actTambahExecute
+    end
+    object actQuit: TAction
+      Caption = 'Ctrl + Q - Quit'
+      ShortCut = 16465
+    end
+    object actSave: TAction
+      Caption = 'F10 - Simpan'
+      ShortCut = 121
+      OnExecute = actSaveExecute
+    end
+    object actCancel: TAction
+      Caption = 'F12 - Batal'
+      ShortCut = 123
+      OnExecute = actCancelExecute
     end
   end
 end

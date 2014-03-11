@@ -5,7 +5,8 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, NxScrollControl, NxCustomGridControl, NxCustomGrid, NxGrid, DB,
-  NxPageControl, StdCtrls, Buttons, ExtCtrls, ComCtrls, ActnList, NxEdit;
+  NxPageControl, StdCtrls, Buttons, ExtCtrls, ComCtrls, ActnList, NxEdit,
+  NxColumnClasses, NxColumns;
 
 type
   TfrmCashOut = class(TForm)
@@ -45,6 +46,13 @@ type
     rgJenisTransaksi: TRadioGroup;
     edtKeterangan: TEdit;
     Label6: TLabel;
+    NxTextColumn1: TNxTextColumn;
+    NxTextColumn2: TNxTextColumn;
+    NxTextColumn3: TNxTextColumn;
+    NxTextColumn4: TNxTextColumn;
+    NxTextColumn5: TNxTextColumn;
+    NxNumberColumn1: TNxNumberColumn;
+    NxTextColumn6: TNxTextColumn;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure btnRefreshClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
