@@ -37,6 +37,7 @@ type
     procedure FormShow(Sender: TObject);
     procedure Action8Execute(Sender: TObject);
     procedure Action9Execute(Sender: TObject);
+    procedure Action1Execute(Sender: TObject);
   private
     { Private declarations }
   public
@@ -58,6 +59,19 @@ begin
   if not Assigned(frmKasir) then
     frmKasir := TfrmKasir.Create(self);
   frmKasir.ShowModal;
+end;
+
+procedure TfrmMain.Action1Execute(Sender: TObject);
+begin
+  //StatusBar1.Panels[1].Text := DM.DirGambar;
+  if (DM.AccountLogin.userID='') and not(DM.isDebug) then
+  begin
+    if not((frmLogin.ShowModal=mrOK) and (DM.AccountLogin.userID<>'')) then
+    begin
+      Application.Terminate;
+    end;
+  end;
+  if DM.isDebug then  DM.AccountLogin.userID:='root';
 end;
 
 procedure TfrmMain.Action8Execute(Sender: TObject);
