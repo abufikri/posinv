@@ -86,6 +86,7 @@ type
     btnRecall: TBitBtn;
     actRecall: TAction;
     Label8: TLabel;
+    lbLayar: TLabel;
     procedure actCariPLUExecute(Sender: TObject);
     procedure edtPLUKeyPress(Sender: TObject; var Key: Char);
     procedure actHelpExecute(Sender: TObject);
@@ -105,6 +106,8 @@ type
     procedure actBatalAllExecute(Sender: TObject);
     procedure actHoldExecute(Sender: TObject);
     procedure actRecallExecute(Sender: TObject);
+    procedure FormResize(Sender: TObject);
+    procedure FormPaint(Sender: TObject);
   private
     { Private declarations }
     FDiskKonsumen : Extended;
@@ -245,6 +248,18 @@ begin
       end else NewTransaksi;
     end;
   end;
+  if gridTransaksi.RowCount>0 then
+  begin
+    // Status Function Button HOLD / RECALL
+    actHold.Enabled       := True;
+    actRecall.Enabled     := False;
+  end else
+  begin
+    // Status Function Button HOLD / RECALL
+    actHold.Enabled       := False;
+    actRecall.Enabled     := True;
+
+  end;
 end;
 
 procedure TfrmKasir.CariBarangByInput(S: String);
@@ -268,7 +283,7 @@ begin
 
     // Insert ke Tabel Sementara
     DM.DBConn.ExecuteQuery('execute procedure insert_penjualan_mesin(:nota_jual, :mesin_id, :k_barang, :nama_barang, :qty_jual, :hrg_satuan, :disk_item, '+
-                              ' :hrg_total, :hemat, :kasir_id, :shift_jual, :id_konsumen, :status_nota)',
+                              ' :hrg_total, :hemat, :kasir_id, :shift_jual, :id_konsumen, :status_nota, :hrg_beli)',
                               [ edtNotaPenjualan.Text, edtIDMesin.Text,
                                 SDataset.FieldbyName('K_Barang').asString,
                                 SDataset.FieldbyName('Nama_Barang').asString,
@@ -281,7 +296,8 @@ begin
                                 edtIDKasir.Text,
                                 '1',    // shift_jual
                                 ' ',    // id_konsumen
-                                ''      // Status Nota
+                                '',      // Status Nota
+                                SDataset.FieldbyName('Hrg_Beli_Satuan').AsFloat
                               ]);
 
     DM.DoDataGrid('select urut, k_barang, nama_barang, qty_jual, hrg_satuan, disk_item, hrg_total, hemat from penjualan_mesin where '+
@@ -394,6 +410,16 @@ begin
   Width  := DM.ScreenWidth;
 end;
 
+procedure TfrmKasir.FormPaint(Sender: TObject);
+begin
+  lbLayar.Caption   := 'Ukuran Layar : '+inttostr(frmKasir.Width)+' x '+inttostr(frmKasir.Height);
+end;
+
+procedure TfrmKasir.FormResize(Sender: TObject);
+begin
+//  lbLayar.Caption   := 'Ukuran Layar : '+inttostr(frmKasir.Width)+' x '+inttostr(frmKasir.Height);
+end;
+
 procedure TfrmKasir.FormShow(Sender: TObject);
 begin
   // Cek Otoritas Kasir untuk OpenPrice dan Diskon Item
@@ -416,6 +442,7 @@ begin
   edtIDKasir.Text   := DM.AccountLogin.userID;
   edtTglTrx.Text    := FormatDateTime('dd/mm/yyy',now);
   lblLEDTotal.Caption := '';
+  lbLayar.Caption   := 'Ukuran Layar : '+inttostr(frmKasir.Width)+' x '+inttostr(frmKasir.Height);
 
   // NewTransaksi
   NewTransaksi;

@@ -1,9 +1,10 @@
 object frmMain: TfrmMain
   Left = 0
   Top = 0
+  Width = 1120
+  Height = 784
+  AutoScroll = True
   Caption = 'frmMain'
-  ClientHeight = 745
-  ClientWidth = 1104
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -93,7 +94,7 @@ object frmMain: TfrmMain
       object RibbonGroup2: TRibbonGroup
         Left = 57
         Top = 3
-        Width = 100
+        Width = 112
         Height = 86
         ActionManager = ActionManager1
         Caption = 'Pengaturan'
@@ -130,10 +131,10 @@ object frmMain: TfrmMain
         Width = 100
       end
       item
-        Width = 150
+        Width = 100
       end
       item
-        Width = 150
+        Width = 100
       end
       item
         Width = 150
@@ -142,7 +143,19 @@ object frmMain: TfrmMain
         Width = 50
       end
       item
-        Width = 50
+        Width = 100
+      end
+      item
+        Width = 80
+      end
+      item
+        Width = 80
+      end
+      item
+        Width = 80
+      end
+      item
+        Width = 200
       end>
   end
   object ActionManager1: TActionManager
@@ -182,6 +195,21 @@ object frmMain: TfrmMain
             CommandProperties.ButtonSize = bsLarge
           end>
         ActionBar = RibbonGroup3
+      end
+      item
+        Items = <
+          item
+            Action = Action5
+            Caption = '&Header Footer'
+            ImageIndex = 4
+            CommandProperties.ButtonSize = bsLarge
+          end
+          item
+            Action = Action7
+            ImageIndex = 14
+            CommandProperties.ButtonSize = bsLarge
+          end>
+        ActionBar = RibbonGroup2
       end>
     Images = ImageList1
     Left = 208
@@ -207,14 +235,14 @@ object frmMain: TfrmMain
     object Action5: TAction
       Category = 'Pengaturan'
       Caption = 'Header Footer'
-    end
-    object Action6: TAction
-      Category = 'Pengaturan'
-      Caption = 'Mesin ID'
+      ImageIndex = 4
+      OnExecute = Action5Execute
     end
     object Action7: TAction
       Category = 'Pengaturan'
-      Caption = 'Hardware'
+      Caption = 'System && Database'
+      ImageIndex = 14
+      OnExecute = Action7Execute
     end
     object Action8: TAction
       Category = 'Cash IN OUT'
@@ -240,7 +268,7 @@ object frmMain: TfrmMain
     Left = 320
     Top = 248
     Bitmap = {
-      494C010131009400580120002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010131009400640120002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       000000000000360000002800000080000000A001000001002000000000000040
       0300000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000

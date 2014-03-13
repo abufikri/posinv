@@ -122,7 +122,20 @@ begin
                            Pembayaran.Bank_Kartu_Bayar,
                            Pembayaran.No_Validasi_Bayar
                           ]);
+  end else
+  if (rgPembayaran.ItemIndex=0) then
+  begin
+    // Insert tabel TR_MESIN_CASH sebagai detail transaksi cash - Catat jml pembayaran dan uang kembalian
+    DM.DBConn.ExecuteQuery('INSERT INTO TR_MESIN_CASH (NO_NOTA, MESIN_ID, JML_BAYAR, JML_KEMBALIAN) '+
+                          ' VALUES (:no_nota, :mesin_id, :jml_bayar, :jml_kembalian) ',
+                          [Pembayaran.No_Nota,
+                           Pembayaran.Mesin_ID,
+                           edtBayar.Value,
+                           (edtBayar.Value - Pembayaran.Debet)
+                          ]);
+
   end;
+
 
   // Insert tabel TR_MESIN
     DM.DBConn.ExecuteQuery('INSERT INTO TR_MESIN (NO_NOTA, MESIN_ID, K_TRANSAKSI, WKT_TRANSAKSI, DEBET, KREDIT, JNS_BAYAR, KETERANGAN, KASIR_ID, SHIFT_JUAL) '+
