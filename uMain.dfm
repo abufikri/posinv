@@ -37,10 +37,37 @@ object frmMain: TfrmMain
         Caption = 'Laporan'
         Page = RibbonPage3
       end>
+    TabIndex = 1
     DesignSize = (
       1104
       143)
     StyleName = 'Ribbon - Luna'
+    object RibbonPage1: TRibbonPage
+      Left = 0
+      Top = 50
+      Width = 1103
+      Height = 93
+      Caption = 'File'
+      Index = 0
+      object RibbonGroup1: TRibbonGroup
+        Left = 4
+        Top = 3
+        Width = 51
+        Height = 86
+        ActionManager = ActionManager1
+        Caption = 'Aplikasi'
+        GroupIndex = 0
+      end
+      object RibbonGroup2: TRibbonGroup
+        Left = 57
+        Top = 3
+        Width = 112
+        Height = 86
+        ActionManager = ActionManager1
+        Caption = 'Pengaturan'
+        GroupIndex = 1
+      end
+    end
     object RibbonPage3: TRibbonPage
       Left = 0
       Top = 50
@@ -72,32 +99,6 @@ object frmMain: TfrmMain
         Height = 86
         ActionManager = ActionManager1
         Caption = 'Penjualan'
-        GroupIndex = 1
-      end
-    end
-    object RibbonPage1: TRibbonPage
-      Left = 0
-      Top = 50
-      Width = 1103
-      Height = 93
-      Caption = 'File'
-      Index = 0
-      object RibbonGroup1: TRibbonGroup
-        Left = 4
-        Top = 3
-        Width = 51
-        Height = 86
-        ActionManager = ActionManager1
-        Caption = 'Aplikasi'
-        GroupIndex = 0
-      end
-      object RibbonGroup2: TRibbonGroup
-        Left = 57
-        Top = 3
-        Width = 112
-        Height = 86
-        ActionManager = ActionManager1
-        Caption = 'Pengaturan'
         GroupIndex = 1
       end
     end
@@ -206,6 +207,7 @@ object frmMain: TfrmMain
           end
           item
             Action = Action7
+            Caption = '&System && Database'
             ImageIndex = 14
             CommandProperties.ButtonSize = bsLarge
           end>
@@ -268,7 +270,7 @@ object frmMain: TfrmMain
     Left = 320
     Top = 248
     Bitmap = {
-      494C010131009400640120002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010131009400680120002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       000000000000360000002800000080000000A001000001002000000000000040
       0300000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
