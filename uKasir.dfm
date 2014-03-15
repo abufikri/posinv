@@ -15,6 +15,8 @@ object frmKasir: TfrmKasir
   Position = poScreenCenter
   OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
+  OnPaint = FormPaint
+  OnResize = FormResize
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
@@ -726,6 +728,13 @@ object frmKasir: TfrmKasir
           Width = 79
           Height = 13
           Caption = 'Nama Konsumen'
+        end
+        object lbLayar: TLabel
+          Left = 16
+          Top = 88
+          Width = 71
+          Height = 13
+          Caption = 'Ukuran Layar :'
         end
         object edtIDKonsumen: TNxEdit
           Left = 120

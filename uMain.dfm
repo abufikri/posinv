@@ -1,9 +1,10 @@
 object frmMain: TfrmMain
   Left = 0
   Top = 0
+  Width = 1120
+  Height = 784
+  AutoScroll = True
   Caption = 'frmMain'
-  ClientHeight = 745
-  ClientWidth = 1104
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -36,45 +37,11 @@ object frmMain: TfrmMain
         Caption = 'Laporan'
         Page = RibbonPage3
       end>
-    ExplicitTop = -6
+    TabIndex = 1
     DesignSize = (
       1104
       143)
     StyleName = 'Ribbon - Luna'
-    object RibbonPage3: TRibbonPage
-      Left = 0
-      Top = 50
-      Width = 1103
-      Height = 93
-      Caption = 'Laporan'
-      Index = 2
-    end
-    object RibbonPage2: TRibbonPage
-      Left = 0
-      Top = 50
-      Width = 1103
-      Height = 93
-      Caption = 'Transaksi'
-      Index = 1
-      object RibbonGroup3: TRibbonGroup
-        Left = 4
-        Top = 3
-        Width = 56
-        Height = 86
-        ActionManager = ActionManager1
-        Caption = 'Cash IN - OUT'
-        GroupIndex = 0
-      end
-      object RibbonGroup4: TRibbonGroup
-        Left = 62
-        Top = 3
-        Width = 51
-        Height = 86
-        ActionManager = ActionManager1
-        Caption = 'Penjualan'
-        GroupIndex = 1
-      end
-    end
     object RibbonPage1: TRibbonPage
       Left = 0
       Top = 50
@@ -94,10 +61,44 @@ object frmMain: TfrmMain
       object RibbonGroup2: TRibbonGroup
         Left = 57
         Top = 3
-        Width = 100
+        Width = 112
         Height = 86
         ActionManager = ActionManager1
         Caption = 'Pengaturan'
+        GroupIndex = 1
+      end
+    end
+    object RibbonPage3: TRibbonPage
+      Left = 0
+      Top = 50
+      Width = 1103
+      Height = 93
+      Caption = 'Laporan'
+      Index = 2
+    end
+    object RibbonPage2: TRibbonPage
+      Left = 0
+      Top = 50
+      Width = 1103
+      Height = 93
+      Caption = 'Transaksi'
+      Index = 1
+      object RibbonGroup3: TRibbonGroup
+        Left = 4
+        Top = 3
+        Width = 98
+        Height = 86
+        ActionManager = ActionManager1
+        Caption = 'Cash IN - OUT'
+        GroupIndex = 0
+      end
+      object RibbonGroup4: TRibbonGroup
+        Left = 104
+        Top = 3
+        Width = 51
+        Height = 86
+        ActionManager = ActionManager1
+        Caption = 'Penjualan'
         GroupIndex = 1
       end
     end
@@ -131,10 +132,10 @@ object frmMain: TfrmMain
         Width = 100
       end
       item
-        Width = 150
+        Width = 100
       end
       item
-        Width = 150
+        Width = 100
       end
       item
         Width = 150
@@ -143,7 +144,19 @@ object frmMain: TfrmMain
         Width = 50
       end
       item
-        Width = 50
+        Width = 100
+      end
+      item
+        Width = 80
+      end
+      item
+        Width = 80
+      end
+      item
+        Width = 80
+      end
+      item
+        Width = 200
       end>
   end
   object ActionManager1: TActionManager
@@ -171,12 +184,34 @@ object frmMain: TfrmMain
       item
         Items = <
           item
+            Action = Action9
+            Caption = 'C&ash OUT'
+            ImageIndex = 23
+            CommandProperties.ButtonSize = bsLarge
+          end
+          item
             Action = Action8
             Caption = '&Cash IN'
-            ImageIndex = 19
+            ImageIndex = 24
             CommandProperties.ButtonSize = bsLarge
           end>
         ActionBar = RibbonGroup3
+      end
+      item
+        Items = <
+          item
+            Action = Action5
+            Caption = '&Header Footer'
+            ImageIndex = 4
+            CommandProperties.ButtonSize = bsLarge
+          end
+          item
+            Action = Action7
+            Caption = '&System && Database'
+            ImageIndex = 14
+            CommandProperties.ButtonSize = bsLarge
+          end>
+        ActionBar = RibbonGroup2
       end>
     Images = ImageList1
     Left = 208
@@ -185,6 +220,7 @@ object frmMain: TfrmMain
     object Action1: TAction
       Category = 'Aplikasi'
       Caption = 'Logout'
+      OnExecute = Action1Execute
     end
     object Action2: TAction
       Category = 'Aplikasi'
@@ -201,23 +237,26 @@ object frmMain: TfrmMain
     object Action5: TAction
       Category = 'Pengaturan'
       Caption = 'Header Footer'
-    end
-    object Action6: TAction
-      Category = 'Pengaturan'
-      Caption = 'Mesin ID'
+      ImageIndex = 4
+      OnExecute = Action5Execute
     end
     object Action7: TAction
       Category = 'Pengaturan'
-      Caption = 'Hardware'
+      Caption = 'System && Database'
+      ImageIndex = 14
+      OnExecute = Action7Execute
     end
     object Action8: TAction
       Category = 'Cash IN OUT'
       Caption = 'Cash IN'
+      ImageIndex = 24
       OnExecute = Action8Execute
     end
     object Action9: TAction
       Category = 'Cash IN OUT'
       Caption = 'Cash OUT'
+      ImageIndex = 23
+      OnExecute = Action9Execute
     end
     object Action10: TAction
       Category = 'Penjualan'
@@ -231,7 +270,7 @@ object frmMain: TfrmMain
     Left = 320
     Top = 248
     Bitmap = {
-      494C010131009400500120002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010131009400680120002000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       000000000000360000002800000080000000A001000001002000000000000040
       0300000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000

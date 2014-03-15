@@ -10,7 +10,10 @@ uses
   uBayar in 'uBayar.pas' {frmBayar},
   uHold in 'uHold.pas' {frmHold},
   uCashIn in 'uCashIn.pas' {frmCashIn},
-  uFormClientMDI in 'uFormClientMDI.pas' {frmClientMDI};
+  uFormClientMDI in 'uFormClientMDI.pas' {frmClientMDI},
+  uCashOut in 'uCashOut.pas' {frmCashOut},
+  uAturHeaderFooter in 'uAturHeaderFooter.pas' {frmAturHeaderFooter},
+  uAturSistem in 'uAturSistem.pas' {frmAturSistem};
 
 {$R *.res}
 

@@ -1,4 +1,4 @@
-unit uCashIn;
+unit uCashOut;
 
 interface
 
@@ -9,7 +9,7 @@ uses
   NxColumnClasses, NxColumns;
 
 type
-  TfrmCashIn = class(TForm)
+  TfrmCashOut = class(TForm)
     Panel1: TPanel;
     lbHeader: TLabel;
     lbDeskripsi: TLabel;
@@ -17,6 +17,7 @@ type
     NxPageControl1: TNxPageControl;
     NxTabSheet1: TNxTabSheet;
     NxTabSheet2: TNxTabSheet;
+    gridList: TNextGrid;
     Label1: TLabel;
     btnRefresh: TBitBtn;
     Panel2: TPanel;
@@ -45,13 +46,12 @@ type
     rgJenisTransaksi: TRadioGroup;
     edtKeterangan: TEdit;
     Label6: TLabel;
-    gridList: TNextGrid;
     NxTextColumn1: TNxTextColumn;
     NxTextColumn2: TNxTextColumn;
     NxTextColumn3: TNxTextColumn;
-    NxNumberColumn1: TNxNumberColumn;
     NxTextColumn4: TNxTextColumn;
     NxTextColumn5: TNxTextColumn;
+    NxNumberColumn1: TNxNumberColumn;
     NxTextColumn6: TNxTextColumn;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure btnRefreshClick(Sender: TObject);
@@ -67,7 +67,7 @@ type
   end;
 
 var
-  frmCashIn: TfrmCashIn;
+  frmCashOut: TfrmCashOut;
   KTransaksi : String;
 
 implementation
@@ -76,7 +76,7 @@ uses modul;
 
 {$R *.dfm}
 
-procedure TfrmCashIn.actCancelExecute(Sender: TObject);
+procedure TfrmCashOut.actCancelExecute(Sender: TObject);
 begin
   // Check Active Page
   if NxPageControl1.ActivePageIndex=1 then
@@ -93,14 +93,14 @@ begin
 
 end;
 
-procedure TfrmCashIn.actSaveExecute(Sender: TObject);
+procedure TfrmCashOut.actSaveExecute(Sender: TObject);
 var sDataset : TDataset;
     SNotaTransaksi    : String;
 begin
   // Check Active Page
   if NxPageControl1.ActivePageIndex=1 then
   begin
-       if rgJenisTransaksi.ItemIndex=0 then KTransaksi :='TR_MODAL' else KTransaksi:= 'TR_CASHIN';
+      if rgJenisTransaksi.ItemIndex=0 then KTransaksi :='TR_SETORAN' else KTransaksi:= 'TR_CASHOUT';
 
       // Ambil Nota Transaksi
       SDataset  := DM.DBConn.CreateSQLDataSet('select no_urut from GET_SEQUENCE_ID(:tipe)',['JUAL']);
@@ -116,8 +116,8 @@ begin
       [SNotaTransaksi,
        DM.MesinID,
        KTransaksi,
-       edtNominal.Value,
        0,
+       edtNominal.Value,
        'TUNAI',
        DM.AccountLogin.userID,
        DM.AccountLogin.ShiftID,
@@ -129,7 +129,7 @@ begin
   btnRefreshClick(self);
 end;
 
-procedure TfrmCashIn.actTambahExecute(Sender: TObject);
+procedure TfrmCashOut.actTambahExecute(Sender: TObject);
 begin
   //NxTabSheet1.Visible := False;
   //NxTabSheet2.Visible := True;
@@ -138,14 +138,14 @@ begin
 
 end;
 
-procedure TfrmCashIn.btnRefreshClick(Sender: TObject);
+procedure TfrmCashOut.btnRefreshClick(Sender: TObject);
 begin
   dtp1.Time := StrtoTime('00:00:00');
   dtp2.Time := StrtoTime('23:59:59');
 
 //  ShowMessage(FormatDateTime('yyy-mm-dd 00:00:00',dtTanggal.DateTime));
-  DM.DoDataGrid('select no_nota, mesin_id, k_transaksi, debet, keterangan, kasir_id, shift_jual from TR_MESIN where mesin_id=:mesin_id and (k_transaksi=:k_transaksi1 or k_transaksi=:k_transaksi2 ) and wkt_transaksi between :wkt1 and :wkt2',
-                [DM.MesinID, 'TR_MODAL','TR_CASHIN',
+  DM.DoDataGrid('select no_nota, mesin_id, k_transaksi, kredit, keterangan, kasir_id, shift_jual from TR_MESIN where mesin_id=:mesin_id and (k_transaksi=:k_transaksi1 or k_transaksi=:k_transaksi2 ) and wkt_transaksi between :wkt1 and :wkt2',
+                [DM.MesinID, 'TR_SETORAN','TR_CASHOUT',
                 dtp1.DateTime,
                 dtp2.DateTime
                 //FormatDateTime('yyyy-mm-dd 00:00:00',dtTanggal.DateTime),
@@ -153,13 +153,13 @@ begin
                 ], gridList);
 end;
 
-procedure TfrmCashIn.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TfrmCashOut.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-  frmCashIn := nil;
+  frmCashOut := nil;
   Action    := caFree;
 end;
 
-procedure TfrmCashIn.FormShow(Sender: TObject);
+procedure TfrmCashOut.FormShow(Sender: TObject);
 begin
   dtp2.DateTime := now;
   dtp1.DateTime := now;
@@ -177,7 +177,7 @@ begin
 
 end;
 
-procedure TfrmCashIn.TogglePageControl(ActivePageIndex: integer);
+procedure TfrmCashOut.TogglePageControl(ActivePageIndex: integer);
 var i : integer;
 begin
   for i := 0 to NxPageControl1.PageCount-1 do

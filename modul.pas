@@ -10,6 +10,7 @@ uses
 type
   TAccountLogin = record
     userID,
+    ShiftID,
     groupID,
     groupName,
     NameID,
@@ -31,7 +32,7 @@ type
     FDBPasswd : string;
     Posisi : integer;
 
-    procedure LoadSettings;
+
     procedure CreateDefaultSetting;
 
   public
@@ -42,18 +43,24 @@ type
     DepositLogAktif : String;
     DBConn : TIBXDB;
     SKIN   : string;
+    PDBName : string;
     Header1 : String;
     Header2 : String;
     Header3 : String;
+    Footer1 : String;
+    Footer2 : String;
+    Footer3 : String;
+
     DirGambar : String;
     MesinID  : String;
-    DrawerID : String;
-    PoleDisplay : String;
+    DrawerStatus : smallint;
+    PoleDisplayStatus : smallint;
     PrinterID : String;
-    PrinterStatus : Boolean;
+    PrinterStatus : smallint;
     ScreenHeight,ScreenWidth : SmallInt;
 
     AccountLogin  : TAccountLogin;
+    procedure LoadSettings;
     function CheckInputText(const ParentControl: TWinControl; const AllowClass: array of TClass): Boolean;
     procedure SendDatagram(const Host, Port: string; Data: string;
       BroadCast: Boolean);
@@ -236,10 +243,15 @@ begin
     TS.Add('Header2 = Mall Olimpic Garden Lt 5 - 14');
     TS.Add('Header3 = M A L A N G');
     TS.Add('');
+    TS.Add('[FOOTER]');
+    TS.Add('Footer1 = Barang yang sudah dibeli tidak dapat ditukarkan ');
+    TS.Add('Footer2 = TERIMA KASIH ATAS KUNJUNGAN ANDA');
+    TS.Add('Footer3 = M A L A N G');
+    TS.Add('');
     TS.Add('[MESIN]');
     TS.Add('MesinID = 01');
-    TS.Add('DrawerID = OFF');
-    TS.Add('PoleDisplayID = OFF');
+    TS.Add('DrawerStatus = 0');
+    TS.Add('PoleDisplayStatus = 0');
     TS.Add('PrinterID = EPSON TMU200');
     TS.Add('PrinterStatus = 0');
     TS.Add('');
@@ -405,17 +417,22 @@ begin
     FDBHost := configFile.ReadString('DATABASE','DBHost','localhost');
     FDBPort := configFile.ReadInteger('DATABASE','DBPort',3050);
     FDBName := configFile.ReadString('DATABASE','DBName','D:\DATABASES\INVENTORYDB.FDB');
+    PDBName := configFile.ReadString('DATABASE','DBName','D:\DATABASES\INVENTORYDB.FDB');
     FDBUsername := configFile.ReadString('DATABASE','DBUsername','SYSDBA');
     FDBPasswd := configFile.ReadString('DATABASE','DBPassword','masterkey');
     SKIN    := configFile.ReadString('SKIN_INFO','SkinName','Office2007 Black');
     Header1 := configFile.ReadString('HEADER','Header1','KFC Fried Chicken');
     Header2 := configFile.ReadString('HEADER','Header2','Mall Olimpic Garden Lt 5-14');
     Header3 := configFile.ReadString('HEADER','Header3','M a l a n g');
+    Footer1 := configFile.ReadString('FOOTER','Footer1','');
+    Footer2 := configFile.ReadString('FOOTER','Footer2','');
+    Footer3 := configFile.ReadString('FOOTER','Footer3','');
+
     MesinID := configFile.ReadString('MESIN','MesinID','01');
-    DrawerID:= configFile.ReadString('MESIN','DrawerID','OFF');
-    PoleDisplay:= configFile.ReadString('MESIN','PoleDisplayID','OFF');
+    DrawerStatus:= configFile.ReadInteger('MESIN','DrawerStatus',0);
+    PoleDisplayStatus:= configFile.ReadInteger('MESIN','PoleDisplayStatus',0);
     PrinterID:= configFile.ReadString('MESIN','PrinterID','OFF');
-    PrinterStatus := configFile.ReadBool('MESIN','PrinterStatus',False);
+    PrinterStatus := configFile.ReadInteger('MESIN','PrinterStatus',0);
     ScreenHeight  := configFile.ReadInteger('LAYAR','Height',768);
     ScreenWidth   := configFile.ReadInteger('LAYAR','Width',1024);
   finally
